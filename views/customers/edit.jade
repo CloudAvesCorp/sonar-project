@@ -1,0 +1,21 @@
+extends ../layout
+
+block content
+	h1.
+		user ID #{user._id}
+	form(action='/users/#{user._id}/edit',method='post',name='updateuser',enctype='application/x-www-form-urlencoded')
+		p Name:
+			input#inputName(type='text', value='#{user.name}', name='name')
+		p Mobile:
+			input#inputMobile(type='number', value='#{user.mobile}', name='mobile')
+		p DOB:
+			input#inputDob(type='date', value='#{user.dob}', name='dob')
+		p Address:
+			input#inputAddress(type='text', value='#{user.address}', name='address')
+		p Email:
+			input#inputEmail(type='text', value='#{user.email}', name='email')
+		p
+			input(type='hidden',value='PUT',name='_method')
+		p
+			button#btnSubmit(type='submit').
+				Update

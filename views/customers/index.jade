@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+    h1.
+         #{title}
+    ul
+        - each customer, i in customers
+            li
+                = customer.name
+                = customer.mobile
+                = customer.dob
+                = customer.address
+                = customer.email
+                = customer._id
+                form(action='/customers/#{customer._id}/edit',method='post',enctype='application/x-www-form-urlencoded')
+                    input(type='hidden',value='DELETE',name='_method')
+                    button(type='submit').
+                        Delete
+                p
+                    a(href='/customers/#{customer._id}/edit') Edit
+                p
+                    a(href='/customers/#{customer._id}') Show
