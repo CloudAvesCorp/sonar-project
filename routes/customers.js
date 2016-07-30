@@ -21,7 +21,7 @@ router.use(methodOverride(function(req, res){
 }))
 
 //build the REST operations at the base for blobs
-//this will be accessible from http://127.0.0.1:3000/customer if the default route for / is left unchanged
+//this will be accessible from http://127.0.0.1:3000/customers if the default route for / is left unchanged
 router.route('/')
     //GET all customers
     .get(function(req, res, next) {
@@ -30,20 +30,7 @@ router.route('/')
               if (err) {
                   return console.error(err);
               } else {
-                  //respond to both HTML and JSON. JSON responses require 'Accept: application/json;' in the Request Header
-                  res.format({
-                      //HTML response will render the index.jade file in the views/blobs folder. We are also setting "blobs" to be an accessible variable in our jade view
-                    html: function(){
-                        res.render('customer/index', {
-                              title: 'All my Customer',
-                              "customers" : customers
-                          });
-                    },
-                    //JSON response will show all blobs in JSON format
-                    json: function(){
                         res.json(customers);
-                    }
-                });
               }
         });
     })
