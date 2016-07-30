@@ -62,7 +62,7 @@ b. Add new routes
 -
 
 c. Add new views
--
+- Remove view
 
 d. Register model, routes in app.js
 -
