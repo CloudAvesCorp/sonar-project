@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var customerSchema = new mongoose.Schema({
   custcode: String,
   name: String,
-  mobile: { type: Number, default: 0 },
+  mobile: { type: String, required: true },
   dob: { type: Date, default: Date.now },
   address: String,
   email: String,
