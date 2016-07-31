@@ -1,4 +1,7 @@
-/*
+/**
+ * Author: Sanjay Kumar Verma
+ * Date: 30th July, 2016
+ * 
 Item Details REST API.
 */
 

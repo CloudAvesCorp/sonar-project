@@ -1,4 +1,7 @@
 /**
+ * Author: Sanjay Kumar Verma
+ * Date: 31st July, 2016
+ * 
  This schema holds the daily rates of the ornaments. 
  */
 

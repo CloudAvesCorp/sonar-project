@@ -1,4 +1,7 @@
 /**
+ * Author: Sanjay Kumar Verma
+ * Date: 31st July, 2016
+ * 
 Rate Details REST API.
 */
 
