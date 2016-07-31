@@ -4,19 +4,25 @@ var express = require('express'),
     logger = require('morgan'),
     cookieParser = require('cookie-parser'),
     bodyParser = require('body-parser');
+
 //Register New db Schema
 var db = require('./model/db'),
     blob = require('./model/blobs'),
     user = require('./model/users');
     customer = require('./model/customers');
-
-
+    item = require('./model/items');
+    stock = require('./model/stocks');
+    rate = require('./model/rates');
+    
 //Register new routes.
 var routes = require('./routes/index'),
     blobs = require('./routes/blobs'),
     users = require('./routes/users');
     customers = require('./routes/customers');
-
+    items = require('./routes/items');
+    stocks = require('./routes/stocks');
+    rates = require('./routes/rates');
+    
 //var users = require('./routes/users');
 
 var app = express();
@@ -38,6 +44,9 @@ app.use('/', routes);
 app.use('/blobs', blobs);
 app.use('/users', users);
 app.use('/customers', customers);
+app.use('/items', items);
+app.use('/stocks', stocks);
+app.use('/rates', rates);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

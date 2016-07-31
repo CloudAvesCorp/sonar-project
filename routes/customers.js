@@ -37,18 +37,27 @@ router.route('/')
     //POST a new customer
     .post(function(req, res) {
         // Get values from POST request. These can be done through forms or REST calls. These rely on the "name" attributes for forms
-        var name = req.body.name;
+    	var custcode = req.body.custcode;
+    	var name = req.body.name;
         var mobile = req.body.mobile;
         var dob = req.body.dob;
         var address = req.body.address;
         var email = req.body.email;
+        var balance = req.body.balance;
+        var challan = req.body.challan;
+        var lastpayment = req.body.lastpayment;
+        
         //call the create function for our database
         mongoose.model('Customer').create({
-            name : name,
+        	custcode : custcode,
+        	name : name,
             mobile : mobile,
             dob : dob,
             address : address,
-            email : email
+            email : email,
+            balance : balance,
+            challan : challan,
+            lastpayment : lastpayment
         }, function (err, customer) {
               if (err) {
                   res.send("There was a problem adding the information to the database.");
@@ -164,21 +173,29 @@ router.route('/:id/edit')
 	//PUT to update a blob by ID
 	.put(function(req, res) {
 	    // Get our REST or form values. These rely on the "name" attributes
-	    var name = req.body.name;
+		var custcode = req.body.custcode;
+		var name = req.body.name;
 	    var mobile = req.body.mobile;
 	    var dob = req.body.dob;
 	    var address = req.body.address;
 	    var email = req.body.email;
-
+        var balance = req.body.balance;
+        var challan = req.body.challan;
+        var lastpayment = req.body.lastpayment;
+            
 	    //find the document by ID
 	    mongoose.model('Customer').findById(req.id, function (err, customer) {
 	        //update it
 	        customer.update({
-	            name : name,
+	        	custcode : custcode,
+	        	name : name,
 	            mobile : mobile,
 	            dob : dob,
 	            address : address,
-              email : email
+	            email : email,
+	            balance : balance,
+	            challan : challan,
+	            lastpayment : lastpayment
 	        }, function (err, customerID) {
 	          if (err) {
 	              res.send("There was a problem updating the information to the database: " + err);
